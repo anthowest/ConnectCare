@@ -9,7 +9,5 @@ class Home(TemplateView):
     template_name = "home.html"
 
 
-class About(View):
-
-    def get(self, request):
-        return HttpResponse("About")
+class About(TemplateView):
+    template_name = "about.html"
