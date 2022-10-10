@@ -8,3 +8,9 @@ class Home(View):
 
     def get(self, request):
         return HttpResponse("ConnectCare Home")
+
+
+class About(View):
+
+    def get(self, request):
+        return HttpResponse("About")
