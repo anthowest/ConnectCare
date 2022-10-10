@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Artist{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Patients</h1>
+<div class="gallery">
+  {% for patient in patients %}
+  <a href="">
+    <div class="card">
+      <div class="card-header">
+        <p class="card-header-title">{{patient.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Patients Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
