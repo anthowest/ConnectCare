@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from .models import Provider
 
 # Create your views here.
 
@@ -21,21 +22,11 @@ class Patient:
         self.diagnosis = diagnosis
 
 
-class Provider:
-    def __init__(self, name, speciality):
-        self.name = name
-        self.speciality = speciality
-
-
 patients = [
     Patient("John Doe", 12, "11/02/2010", "ADHD"),
     Patient("Jane Doe", 28, "11/02/1993", "COVID")
 ]
 
-providers = [
-    Provider("Billy Bob", "Cardiac"),
-    Provider("Janet Jackson", "General")
-]
 
 class PatientList(TemplateView):
     template_name = "patient_list.html"
@@ -51,5 +42,5 @@ class ProviderList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["providers"] = providers 
+        context["providers"] = Provider.objects.all()
         return context
