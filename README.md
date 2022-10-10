@@ -6,7 +6,7 @@ ConnectCare is an EHR built for patients and providers in mind. Patients have th
 
 ## Wireframes
 
-### Patient
+## Patient
 
 ### Home page
 ![PatientConnectCare_home (1)](https://user-images.githubusercontent.com/73357380/194899597-cd0b84aa-a136-455e-8bb6-a8cf78ae8d55.png)
@@ -23,7 +23,7 @@ ConnectCare is an EHR built for patients and providers in mind. Patients have th
 ### Records
 ![PatientWireFrame_records](https://user-images.githubusercontent.com/73357380/194896336-fe851119-55ef-4fa4-99ae-ec137f4cff8e.png)
 
-### Provider
+## Provider
 
 ### Home page
 ![ProviderConnectCare_home](https://user-images.githubusercontent.com/73357380/194899362-7cc95deb-a376-4e28-a026-f20da65d37ac.png)
