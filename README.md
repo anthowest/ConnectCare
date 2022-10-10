@@ -40,6 +40,8 @@ ConnectCare is an EHR built for patients and providers in mind. Patients have th
 ### To-do List
 ![ProviderWireFrame_to-do](https://user-images.githubusercontent.com/73357380/194897548-c4867ee1-9c48-48f9-8c97-737cb9f08ae6.png)
 
+## ERD
+![ConnectCare_ERD](https://user-images.githubusercontent.com/73357380/194903346-401257f6-c581-4c95-9a9a-f669748d1196.png)
 
 
 
