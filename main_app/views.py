@@ -1,4 +1,5 @@
 from pipes import Template
+from django.urls import reverse
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
@@ -6,7 +7,7 @@ from django.views.generic.base import TemplateView
 from .models import Provider, Patient
 from django.contrib.auth import login
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -42,7 +43,18 @@ class PatientCreate(CreateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
     template_name = "patient_create.html"
-    success_url = "/patients/"
+
+    def get_success_url(self):
+        return reverse('patient_detail', kwargs={'pk': self.object.pk})
+
+
+class PatientUpdate(UpdateView):
+    model = Patient
+    fields = ['name', 'dob', 'diagnosis']
+    template_name = "patient_update.html"
+    
+    def get_success_url(self):
+        return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
 
 class PatientDetail(DetailView):
