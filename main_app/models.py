@@ -27,3 +27,17 @@ class Patient(models.Model):
 
     class Meta:
         ordering = ['name']
+
+
+class Record(models.Model):
+
+    reason = models.TextField()
+    vital_signs = models.TextField()
+    treatment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="records")
+
+
+    def __str__(self):
+        return self.reason
+    

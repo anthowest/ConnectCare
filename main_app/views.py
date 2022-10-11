@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Provider, Patient
+from .models import Provider, Patient, Record
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
@@ -36,6 +36,14 @@ class ProviderList(TemplateView):
         context = super().get_context_data(**kwargs)
         context["providers"] = Provider.objects.all()
         return context
+
+    
+class PatientRecord(TemplateView):
+    template_name = "patient_record.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["records"] = Record.objects.all()
 
 
 class Signup(View):
