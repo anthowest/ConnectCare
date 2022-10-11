@@ -7,7 +7,7 @@ from django.views.generic.base import TemplateView
 from .models import Provider, Patient
 from django.contrib.auth import login
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -63,6 +63,12 @@ class PatientDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+
+class PatientDelete(DeleteView):
+    model = Patient
+    template_name = "patient_delete_confirmation.html"
+    success_url = "/patients/"
 
 
 class ProviderList(TemplateView):
