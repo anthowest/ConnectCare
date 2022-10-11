@@ -29,6 +29,7 @@ class Patient(models.Model):
         ordering = ['name']
 
 
+
 class Record(models.Model):
 
     reason = models.TextField()

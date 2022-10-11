@@ -1,9 +1,11 @@
+from pipes import Template
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Provider, Patient, Record
 from django.contrib.auth import login
+from django.views.generic import DetailView
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -27,6 +29,15 @@ class PatientList(TemplateView):
         context = super().get_context_data(**kwargs)
         context["patients"] = Patient.objects.all()
         return context
+
+
+class PatientDetail(DetailView):
+    model = Patient
+    template_name = "patient_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["records"] = Record.objects.all()
 
 
 class ProviderList(TemplateView):

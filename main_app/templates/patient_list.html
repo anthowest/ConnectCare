@@ -8,7 +8,7 @@
 <h1 class="title pt-5">Patients</h1>
 <div class="gallery">
   {% for patient in patients %}
-  <a href="">
+  <a href="{% url 'patient_detail' patient.pk %}">
     <div class="card">
       <div class="card-header">
         <p class="card-header-title">{{patient.name}}</p>
