@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,6 +18,15 @@ class Patient(models.Model):
 
     class Meta:
         ordering = ['name']
+
+
+class Provider(models.Model):
+    name = models.CharField(max_length=100)
+    speciality = models.CharField(max_length=200)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="patients")
+
+    def __str__(self):
+        return self.name
 
 
 # class Record(models.Model):
