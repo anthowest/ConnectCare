@@ -61,9 +61,6 @@ class PatientDetail(DetailView):
     model = Patient
     template_name = "patient_detail.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
 
 class PatientDelete(DeleteView):
     model = Patient
