@@ -23,7 +23,7 @@ class Patient(models.Model):
 class Provider(models.Model):
     name = models.CharField(max_length=100)
     speciality = models.CharField(max_length=200)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="patients")
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers")
 
     def __str__(self):
         return self.name

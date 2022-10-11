@@ -30,7 +30,7 @@
         {% for provider in patient.providers.all %}
             <div class="song">
                 <span>{{forloop.counter}}</span>
-                <span><b>{{provider.name}}</b></span>
+                <span><b>{{provider.name}}</b></span> -
                 <span>{{provider.speciality}}</span>
             </div>
         {% empty %}
