@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from .models import Provider, Patient, Record
 from django.contrib.auth import login
 from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
@@ -35,6 +36,13 @@ class PatientList(TemplateView):
             context["patients"] = Patient.objects.all()
             context["header"] = f"Searching for {name}"
         return context
+
+
+class PatientCreate(CreateView):
+    model = Patient
+    fields = ['name', 'dob', 'diagnosis']
+    template_name = "patient_create.html"
+    success_url = "/patients/"
 
 
 class PatientDetail(DetailView):
