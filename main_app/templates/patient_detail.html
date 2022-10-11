@@ -2,6 +2,14 @@
 {% block content %}
 
 <div class="detail__name">
+    {% if patient.active %}
+    <div class="icon-text">
+        <span class="icon has-text-info">
+            <i class="fas fa-check-circle"></i>
+        </span>
+        <span>Active</span>
+    </div>
+    {% endif %}
     <h1 class="title">{{patient.name}}</h1>
 </div>
 <div class="detail__container">
