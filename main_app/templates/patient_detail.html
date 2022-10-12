@@ -29,6 +29,41 @@
     </div>
     <div class="detail__songs mb-5">
         <h3 class="title is-3">Records</h3>
+        <form class="mb-5" action="{% url 'record_create' patient.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="visit_reason"
+                        placeholder="Visit Reason"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="vital_signs"
+                        placeholder="Vital Signs"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="treatment"
+                        placeholder="Treatment"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Record" />
+                </div>
+            </div>
+        </form>
         {% for record in patient.records.all %}
             <div class="song">
                 <span>{{forloop.counter}}</span>
