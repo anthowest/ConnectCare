@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Patient
+from .models import Patient, Record
 from django.contrib.auth import login
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -68,6 +68,17 @@ class PatientDelete(DeleteView):
     success_url = "/patients/"
 
 
+class RecordCreate(View):
+
+    def post(self, request, pk):
+        visit_reason = request.POST.get("visit_reason")
+        vital_signs = request.POST.get("vital_signs")
+        treatment = request.POST.get("treatment")
+        patient = Patient.objects.get(pk=pk)
+        Record.objects.create(visit_reason=visit_reason, vital_signs=vital_signs, treatment=treatment, patient=patient)
+        return redirect('patient_detail', pk=pk)
+
+
 # class ProviderList(TemplateView):
 #     template_name = "provider_list.html"
 
@@ -75,14 +86,6 @@ class PatientDelete(DeleteView):
 #         context = super().get_context_data(**kwargs)
 #         context["providers"] = Provider.objects.all()
 #         return context
-
-    
-# class PatientRecord(TemplateView):
-#     template_name = "patient_record.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["records"] = Record.objects.all()
 
 
 class Signup(View):

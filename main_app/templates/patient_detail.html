@@ -11,6 +11,8 @@
     </div>
     {% endif %}
     <h1 class="title">{{patient.name}}</h1>
+    <h3><b>DOB:</b> {{patient.dob}}</h3>
+    <h3><b>Diagnosis:</b> {{patient.diagnosis}}</h3>
 </div>
 <div class="detail__container">
     <div class="buttons">
@@ -26,11 +28,63 @@
         </a>
     </div>
     <div class="detail__songs mb-5">
+        <h3 class="title is-3">Records</h3>
+        <form class="mb-5" action="{% url 'record_create' patient.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="visit_reason"
+                        placeholder="Visit Reason"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="vital_signs"
+                        placeholder="Vital Signs"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="treatment"
+                        placeholder="Treatment"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Record" />
+                </div>
+            </div>
+        </form>
+        {% for record in patient.records.all %}
+            <div class="song">
+                <span>{{forloop.counter}}</span>
+                <span><b>{{record.visit_reason}}</b></span>
+                <span>{{record.treatment}}</span>
+            </div>
+        {% empty %}
+            <article class="message">
+                <div class="message-header">
+                    <p>No Records Available</p>
+                </div>
+            </article>
+
+        {% endfor %}
+    </div>
+    <div class="detail__songs mb-5">
         <h3 class="title is-3">Providers</h3>
         {% for provider in patient.providers.all %}
             <div class="song">
                 <span>{{forloop.counter}}</span>
-                <span><b>{{provider.name}}</b></span> -
+                <span><b>{{provider.name}}</b></span>
                 <span>{{provider.speciality}}</span>
             </div>
         {% empty %}
@@ -45,8 +99,9 @@
 
     <div class="detail__about">
         <h4 class="title is-4">About</h4>
-        <p>{{patient.dob}}</p>
-        <p>{{patient.diagnosis}}</p>
+        <h4><b>Phone number:</b> {{patient.phone_number}}</h4>
+        <h3><b>Address:</b> {{patient.address}}</h3>
+        
     </div>
 </div>
 
