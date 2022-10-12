@@ -11,6 +11,8 @@
     </div>
     {% endif %}
     <h1 class="title">{{patient.name}}</h1>
+    <h3><b>DOB:</b> {{patient.dob}}</h3>
+    <h3><b>Diagnosis:</b> {{patient.diagnosis}}</h3>
 </div>
 <div class="detail__container">
     <div class="buttons">
@@ -30,7 +32,7 @@
         {% for provider in patient.providers.all %}
             <div class="song">
                 <span>{{forloop.counter}}</span>
-                <span><b>{{provider.name}}</b></span> -
+                <span><b>{{provider.name}}</b></span>
                 <span>{{provider.speciality}}</span>
             </div>
         {% empty %}
@@ -45,8 +47,9 @@
 
     <div class="detail__about">
         <h4 class="title is-4">About</h4>
-        <p>{{patient.dob}}</p>
-        <p>{{patient.diagnosis}}</p>
+        <h4><b>Phone number:</b> {{patient.phone_number}}</h4>
+        <h3><b>Address:</b> {{patient.address}}</h3>
+        
     </div>
 </div>
 

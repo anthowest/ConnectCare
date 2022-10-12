@@ -12,6 +12,8 @@ class Patient(models.Model):
     dob = models.DateField()
     diagnosis = models.CharField(max_length=200)
     active = models.BooleanField(default=True)
+    address = models.TextField(max_length=100, default='SOME STRING')
+    phone_number = models.CharField(max_length=10, default=0)
 
     def __str__(self):
         return self.name
