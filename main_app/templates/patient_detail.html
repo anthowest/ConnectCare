@@ -28,6 +28,22 @@
         </a>
     </div>
     <div class="detail__songs mb-5">
+        <h3 class="title is-3">Records</h3>
+        {% for record in patient.records.all %}
+            <div class="song">
+                <span>{{forloop.counter}}</span>
+                <span><b>{{record.visit_reason}}</b></span>
+            </div>
+        {% empty %}
+            <article class="message">
+                <div class="message-header">
+                    <p>No Records Available</p>
+                </div>
+            </article>
+
+        {% endfor %}
+    </div>
+    <div class="detail__songs mb-5">
         <h3 class="title is-3">Providers</h3>
         {% for provider in patient.providers.all %}
             <div class="song">
