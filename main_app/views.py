@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import Patient, Record
+from .models import Patient, Record, Provider
 from django.contrib.auth import login
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -38,6 +38,19 @@ class PatientList(TemplateView):
             context["header"] = f"Searching for {name}"
         return context
 
+class ProviderList(TemplateView):
+    template_name = "provider_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        if name != None:
+            context["providers"] = Provider.objects.filter(name__icontains=name)
+            context["header"] = f"Searching for {name}"
+        else:
+            context["providers"] = Provider.objects.all()
+            context["header"] = f"Searching for {name}"
+        return context
 
 class PatientCreate(CreateView):
     model = Patient
