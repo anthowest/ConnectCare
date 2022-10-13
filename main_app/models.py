@@ -15,6 +15,7 @@ class Patient(models.Model):
     active = models.BooleanField(default=True)
     address = models.TextField(max_length=100, default='SOME STRING')
     phone_number = models.CharField(max_length=12, default=0)
+    provider = models.ForeignKey('Provider', on_delete=models.CASCADE, related_name="patients", blank=True)
 
     def __str__(self):
         return self.name

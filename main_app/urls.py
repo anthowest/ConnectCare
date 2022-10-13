@@ -13,5 +13,6 @@ urlpatterns = [
     path('patients/<int:pk>/records/new/', views.RecordCreate.as_view(), name="record_create"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('providers/', views.ProviderList.as_view(), name="provider_list"),
+    path('providers/<int:pk>/', views.ProviderDetail.as_view(), name="provider_detail"),
     # path('messages/<int:pk>/')
 ]

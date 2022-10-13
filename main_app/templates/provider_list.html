@@ -24,7 +24,7 @@
 
 <div class="gallery">
     {% for provider in providers %}
-    <a href="">
+    <a href="{% url 'provider_detail' provider.pk %}">
       <div class="card">
         <div class="card-header">
           <p class="card-header-title">{{provider.name}}</p>
