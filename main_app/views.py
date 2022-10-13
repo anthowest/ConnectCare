@@ -89,7 +89,7 @@ class ProviderCreate(CreateView):
 @method_decorator(login_required, name='dispatch')
 class PatientUpdate(UpdateView):
     model = Patient
-    fields = ['name', 'dob', 'diagnosis']
+    fields = ['name', 'dob', 'diagnosis', 'active','address', 'phone_number']
     template_name = "patient_update.html"
     
     def get_success_url(self):
