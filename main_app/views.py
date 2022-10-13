@@ -52,10 +52,18 @@ class ProviderList(TemplateView):
             context["header"] = f"Searching for {name}"
         return context
 
+# Provider Create - make sure to add self.request.user.pk after form is valid
+
 class PatientCreate(CreateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
     template_name = "patient_create.html"
+
+    def form_valid(self, form):
+        provider = Provider.objects.get(user_id=self.request.user.pk)
+        print(provider)
+        form.instance.provider = provider
+        return super(PatientCreate, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
@@ -121,6 +129,7 @@ class Signup(View):
             user = form.save()
             login(request, user)
             return redirect("patient_list")
+            # provider_create
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
