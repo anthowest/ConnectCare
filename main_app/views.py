@@ -54,6 +54,7 @@ class ProviderList(TemplateView):
 
 # Provider Create - make sure to add self.request.user.pk after form is valid
 
+@method_decorator(login_required, name='dispatch')
 class PatientCreate(CreateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
@@ -68,7 +69,7 @@ class PatientCreate(CreateView):
     def get_success_url(self):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
-
+@method_decorator(login_required, name='dispatch')
 class ProviderCreate(CreateView):
     model = Provider
     fields = ['name', 'speciality']
@@ -83,6 +84,7 @@ class ProviderCreate(CreateView):
         return reverse('provider_detail', kwargs={'pk': self.object.pk})
 
 
+@method_decorator(login_required, name='dispatch')
 class PatientUpdate(UpdateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
@@ -92,6 +94,7 @@ class PatientUpdate(UpdateView):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
 
+@method_decorator(login_required, name='dispatch')
 class PatientDetail(DetailView):
     model = Patient
     template_name = "patient_detail.html"
@@ -102,16 +105,19 @@ class ProviderDetail(DetailView):
     template_name = "provider_detail.html"
 
 
-class ProviderHomepage(TemplateView):
-    template_name = "provider_homepage.html"
+# class ProviderDashboard(TemplateView):
+#     model = Provider
+#     template_name = "dashboard.html"
 
 
+@method_decorator(login_required, name='dispatch')
 class PatientDelete(DeleteView):
     model = Patient
     template_name = "patient_delete_confirmation.html"
     success_url = "/patients/"
 
 
+@method_decorator(login_required, name='dispatch')
 class RecordCreate(View):
 
     def post(self, request, pk):
