@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+<div class="detail__container">
 <div class="detail__name">
     <h1 class="title">{{provider.name}}</h1>
     <h3><b>Speciality:</b> {{provider.speciality}}</h3>
@@ -13,6 +14,7 @@
         <h4 class="title is-4">About</h4>
         <h4>{{provider.bio}}</h4>
     </div>
+</div>
 </div>
 
 {% endblock %}
