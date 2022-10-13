@@ -69,6 +69,20 @@ class PatientCreate(CreateView):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
 
+class ProviderCreate(CreateView):
+    model = Provider
+    fields = ['name', 'speciality']
+    template_name = "provider_create.html"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ProviderCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('provider_detail', kwargs={'pk': self.object.pk})
+
+
 class PatientUpdate(UpdateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
@@ -128,7 +142,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("patient_list")
+            return redirect("provider_create")
             # provider_create
         else:
             context = {"form": form}

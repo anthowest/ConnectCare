@@ -28,7 +28,7 @@ class Patient(models.Model):
 class Provider(models.Model):
     name = models.CharField(max_length=100)
     speciality = models.CharField(max_length=200)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers")
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers", null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
