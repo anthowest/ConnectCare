@@ -28,6 +28,9 @@ class Patient(models.Model):
 class Provider(models.Model):
     name = models.CharField(max_length=100)
     speciality = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=12, default=0)
+    email = models.CharField(max_length=50, default=0)
+    bio = models.TextField(max_length=500, default=0)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers", null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 

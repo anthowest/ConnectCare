@@ -38,6 +38,7 @@ class PatientList(TemplateView):
             context["header"] = f"Searching for {name}"
         return context
 
+
 class ProviderList(TemplateView):
     template_name = "provider_list.html"
 
@@ -68,6 +69,7 @@ class PatientCreate(CreateView):
 
     def get_success_url(self):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
+
 
 @method_decorator(login_required, name='dispatch')
 class ProviderCreate(CreateView):
@@ -127,15 +129,6 @@ class RecordCreate(View):
         patient = Patient.objects.get(pk=pk)
         Record.objects.create(visit_reason=visit_reason, vital_signs=vital_signs, treatment=treatment, patient=patient)
         return redirect('patient_detail', pk=pk)
-
-
-# class ProviderList(TemplateView):
-#     template_name = "provider_list.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["providers"] = Provider.objects.all()
-#         return context
 
 
 class Signup(View):
