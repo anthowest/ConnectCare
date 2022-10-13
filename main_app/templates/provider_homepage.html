@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="detail__songs mb-5">
+    <h3 class="title is-3">Patients</h3>
+    {% for patient in provider.patients.all %}
+        <div class="song">
+            <span>{{forloop.counter}}</span>
+            <span><b>{{patient.name}}</b></span>
+            <span>{{patient.diagnosis}}</span>
+        </div>
+    {% empty %}
+        <article class="message">
+            <div class="message-header">
+                <p>No Patients Available</p>
+            </div>
+        </article>
+    {% endfor %}
+</div>
+
+{% endblock %}

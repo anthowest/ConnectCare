@@ -14,5 +14,6 @@ urlpatterns = [
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('providers/', views.ProviderList.as_view(), name="provider_list"),
     path('providers/<int:pk>/', views.ProviderDetail.as_view(), name="provider_detail"),
+    path('providers/<int:pk>/homepage', views.ProviderHomepage.as_view(), name="provider_homepage"),
     # path('messages/<int:pk>/')
 ]

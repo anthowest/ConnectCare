@@ -80,6 +80,10 @@ class ProviderDetail(DetailView):
     template_name = "provider_detail.html"
 
 
+class ProviderHomepage(TemplateView):
+    template_name = "provider_homepage.html"
+
+
 class PatientDelete(DeleteView):
     model = Patient
     template_name = "patient_delete_confirmation.html"
