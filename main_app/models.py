@@ -15,7 +15,8 @@ class Patient(models.Model):
     active = models.BooleanField(default=True)
     address = models.TextField(max_length=100, default='SOME STRING')
     phone_number = models.CharField(max_length=12, default=0)
-    provider = models.ForeignKey('Provider', on_delete=models.CASCADE, related_name="patients", blank=True)
+    provider = models.ForeignKey('Provider', on_delete=models.CASCADE, related_name="patients", null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -27,7 +28,8 @@ class Patient(models.Model):
 class Provider(models.Model):
     name = models.CharField(max_length=100)
     speciality = models.CharField(max_length=200)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers")
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="providers", null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.name

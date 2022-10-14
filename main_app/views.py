@@ -52,15 +52,39 @@ class ProviderList(TemplateView):
             context["header"] = f"Searching for {name}"
         return context
 
+# Provider Create - make sure to add self.request.user.pk after form is valid
+
+@method_decorator(login_required, name='dispatch')
 class PatientCreate(CreateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
     template_name = "patient_create.html"
 
+    def form_valid(self, form):
+        provider = Provider.objects.get(user_id=self.request.user.pk)
+        print(provider)
+        form.instance.provider = provider
+        return super(PatientCreate, self).form_valid(form)
+
     def get_success_url(self):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
+class ProviderCreate(CreateView):
+    model = Provider
+    fields = ['name', 'speciality']
+    template_name = "provider_create.html"
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ProviderCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('provider_detail', kwargs={'pk': self.object.pk})
+
+
+@method_decorator(login_required, name='dispatch')
 class PatientUpdate(UpdateView):
     model = Patient
     fields = ['name', 'dob', 'diagnosis']
@@ -70,6 +94,7 @@ class PatientUpdate(UpdateView):
         return reverse('patient_detail', kwargs={'pk': self.object.pk})
 
 
+@method_decorator(login_required, name='dispatch')
 class PatientDetail(DetailView):
     model = Patient
     template_name = "patient_detail.html"
@@ -80,16 +105,19 @@ class ProviderDetail(DetailView):
     template_name = "provider_detail.html"
 
 
-class ProviderHomepage(TemplateView):
-    template_name = "provider_homepage.html"
+# class ProviderDashboard(TemplateView):
+#     model = Provider
+#     template_name = "dashboard.html"
 
 
+@method_decorator(login_required, name='dispatch')
 class PatientDelete(DeleteView):
     model = Patient
     template_name = "patient_delete_confirmation.html"
     success_url = "/patients/"
 
 
+@method_decorator(login_required, name='dispatch')
 class RecordCreate(View):
 
     def post(self, request, pk):
@@ -120,7 +148,8 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("patient_list")
+            return redirect("provider_create")
+            # provider_create
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

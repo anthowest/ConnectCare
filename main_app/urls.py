@@ -13,7 +13,9 @@ urlpatterns = [
     path('patients/<int:pk>/records/new/', views.RecordCreate.as_view(), name="record_create"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('providers/', views.ProviderList.as_view(), name="provider_list"),
+    path('providers/new/', views.ProviderCreate.as_view(), name="provider_create"),
     path('providers/<int:pk>/', views.ProviderDetail.as_view(), name="provider_detail"),
-    path('providers/<int:pk>/homepage', views.ProviderHomepage.as_view(), name="provider_homepage"),
+    # path('dashboard/<int:pk>/', views.ProviderDashboard.as_view(), name="dashboard"),
+
     # path('messages/<int:pk>/')
 ]

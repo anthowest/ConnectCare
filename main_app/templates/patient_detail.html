@@ -81,20 +81,17 @@
     </div>
     <div class="detail__songs mb-5">
         <h3 class="title is-3">Providers</h3>
-        {% for provider in patient.providers.all %}
             <div class="song">
-                <span>{{forloop.counter}}</span>
-                <span><b>{{provider.name}}</b></span>
-                <span>{{provider.speciality}}</span>
+                <span><b>{{patient.provider.name}}</b></span>
+                <span>{{patient.provider.speciality}}</span>
             </div>
-        {% empty %}
-            <article class="message">
+
+            <!-- <article class="message">
                 <div class="message-header">
                     <p>No Providers Available</p>
                 </div>
-            </article>
+            </article> -->
 
-        {% endfor %}
     </div>
 
     <div class="detail__about">
