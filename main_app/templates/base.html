@@ -31,7 +31,6 @@
             {% if user.is_authenticated %}
                 <div class="navbar-menu navbar-end">
                     <span class="navbar-item">Welcome: {{user.username}}</span>
-                    <!-- <a class="navbar-item" href="{% url 'dashboard' %}">Dashboard</a> -->
                     <a class="navbar-item" href="/patients">Patients</a>
                     <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
                     

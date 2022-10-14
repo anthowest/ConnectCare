@@ -69,6 +69,7 @@
                 <span>{{forloop.counter}}</span>
                 <span><b>{{record.visit_reason}}</b></span>
                 <span>{{record.treatment}}</span>
+                <span>{{record.created_at}}</span>
             </div>
         {% empty %}
             <article class="message">
@@ -85,8 +86,8 @@
                 <span><b>{{patient.provider.name}}</b></span>
                 <span>{{patient.provider.speciality}}</span>
             </div>
-
-            <!-- <article class="message">
+<!-- 
+            <article class="message">
                 <div class="message-header">
                     <p>No Providers Available</p>
                 </div>
