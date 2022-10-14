@@ -1,1 +1,1 @@
-web: gunicorn connectcare_project_.wsgi
+web: gunicorn connectcare_project.wsgi
