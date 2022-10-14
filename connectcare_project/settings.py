@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 """
 Django settings for connectcare_project project.
@@ -128,5 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/patients/'
 LOGOUT_REDIRECT_URL = '/'
 
-import django_heroku
+
 django_heroku.settings(locals())
