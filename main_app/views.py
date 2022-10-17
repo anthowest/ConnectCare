@@ -74,7 +74,7 @@ class PatientCreate(CreateView):
 @method_decorator(login_required, name='dispatch')
 class ProviderCreate(CreateView):
     model = Provider
-    fields = ['name', 'speciality']
+    fields = ['name', 'speciality', 'phone_number', 'email', 'bio']
     template_name = "provider_create.html"
 
     def form_valid(self, form):
