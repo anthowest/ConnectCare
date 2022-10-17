@@ -2,7 +2,7 @@
 Electronic Health Records system built for long-term care.
 
 ## Description
-ConnectCare is an EHR built for patients and providers in mind. Patients will have the ability to log in to their portal to see upcoming visits, care team, patient records, and messages from their care team. Providers are able to see their active patients and add visit records to their account. 
+ConnectCare is an EHR built for patients and providers in mind. Providers are able to see their active patients; create, update, and delete patients; and add visit records to their account. 
 
 ## Wireframes
 
@@ -43,6 +43,27 @@ ConnectCare is an EHR built for patients and providers in mind. Patients will ha
 ## ERD
 ![ConnectCare_ERD](https://user-images.githubusercontent.com/73357380/194903346-401257f6-c581-4c95-9a9a-f669748d1196.png)
 
+## Technologies Used
+
+- Django
+- Python
+- HTML
+- JavaScript
+- Heroku
+- Bulma
+- Bootstrap
+
+## Getting Started
+
+### Link to App
+https://connectcare-west.herokuapp.com/
+
+### Future Goals
+
+-Create patient accounts so they can see their records. 
+-Allow messaging between provider and patient
+-Create To-do's for providers
+-Add Calendar and Schedule functionality
 
 
 
