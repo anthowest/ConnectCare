@@ -4,6 +4,10 @@ body {
     min-height: 100vh;
   }
   
+  .home-page {
+    text-align: center;
+  }
+
   h1,
   h2,
   h3 {
