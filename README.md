@@ -60,10 +60,10 @@ https://connectcare-west.herokuapp.com/
 
 ### Future Goals
 
--Create patient accounts so they can see their records. 
--Allow messaging between provider and patient
--Create To-do's for providers
--Add Calendar and Schedule functionality
+- Create patient accounts so they can see their records. 
+- Allow messaging between provider and patient
+- Create To-do's for providers
+- Add Calendar and Schedule functionality
 
 
 
