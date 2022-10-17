@@ -1,8 +1,8 @@
 # ConnectCare
-Electronic Health Records system.
+Electronic Health Records system built for long-term care.
 
 ## Description
-ConnectCare is an EHR built for patients and providers in mind. Patients have the ability to log in to their portal to see upcoming visits, care team, patient records, and messages from their care team. Providers are able to see their upcoming visits, active patients, to-do list, and messages from their patients. 
+ConnectCare is an EHR built for patients and providers in mind. Patients will have the ability to log in to their portal to see upcoming visits, care team, patient records, and messages from their care team. Providers are able to see their active patients and add visit records to their account. 
 
 ## Wireframes
 
