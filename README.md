@@ -15,7 +15,7 @@ ConnectCare is an EHR built for patients and providers in mind. Providers are ab
 ![Screen Shot 2022-10-17 at 11 44 11 AM](https://user-images.githubusercontent.com/73357380/196235830-cd7aad95-b034-43be-93ad-02b7745cb378.png)
 
 ## ERD
-![ConnectCare_ERD](https://user-images.githubusercontent.com/73357380/194903346-401257f6-c581-4c95-9a9a-f669748d1196.png)
+![ConnectCare_ERD (1)](https://user-images.githubusercontent.com/73357380/196238362-9f46daca-db75-4e10-aa69-1557b7d2b0d9.png)
 
 ## Technologies Used
 
