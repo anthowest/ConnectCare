@@ -41,6 +41,7 @@ https://connectcare-west.herokuapp.com/
 - Create To-do's for providers
 - Add Calendar and Schedule functionality
 - Add Notes to Patient profile
+- Provider and Patient Dashboards
 
 
 
