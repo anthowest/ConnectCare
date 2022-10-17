@@ -5,7 +5,11 @@ body {
   }
   
   .home-page {
+    justify-content: center;
     text-align: center;
+    font-size: 30px;
+    align-items: center;
+    padding: 400px 0;
   }
 
   h1,
