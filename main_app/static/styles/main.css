@@ -78,11 +78,11 @@ body {
   .detail__name {
     position: absolute;
     z-index: 2;
-    top: 100px;
+    top: 50px;
   }
   
   .detail__container {
-    margin-top: 250px;
+    margin-top: 175px;
   }
 
   .detail__songs {
