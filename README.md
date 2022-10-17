@@ -48,10 +48,12 @@ ConnectCare is an EHR built for patients and providers in mind. Providers are ab
 - Django
 - Python
 - HTML
+- CSS
 - JavaScript
 - Heroku
 - Bulma
 - Bootstrap
+- PostgreSQL
 
 ## Getting Started
 
